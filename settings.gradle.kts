@@ -13,4 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "My Application"
-include ':app'
+include (":app")
+include (":feature:authentication")
+include (":feature:dashboard")
