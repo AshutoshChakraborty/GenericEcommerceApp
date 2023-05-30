@@ -35,7 +35,7 @@ android {
         jvmTarget = "1.8"
     }
     composeOptions {
-        kotlinCompilerExtensionVersion ="1.4.2"
+        kotlinCompilerExtensionVersion ="1.4.7"
     }
     kapt {
         correctErrorTypes =true
@@ -47,7 +47,7 @@ dependencies {
     implementation (project(":feature:authentication"))
     implementation (project(":feature:dashboard"))
     implementation (Dependencies.appCompat)
-    val composeBom = platform("androidx.compose:compose-bom:2023.01.00")
+    val composeBom = platform("androidx.compose:compose-bom:2023.05.01")
     implementation(composeBom)
     androidTestImplementation (composeBom)
     implementation (Dependencies.coreKtx)
