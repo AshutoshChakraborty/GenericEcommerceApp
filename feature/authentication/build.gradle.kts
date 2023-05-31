@@ -1,10 +1,24 @@
 plugins {
     id("com.android.library")
+    id ("kotlin-kapt")
+    id ("org.jetbrains.kotlin.android")
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
     namespace = "com.example.authentication"
     compileSdk =33
+    defaultConfig {
+        minSdk =21
+        testInstrumentationRunner ="androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose =true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion ="1.4.7"
+    }
 }
 
 dependencies {
@@ -33,4 +47,9 @@ dependencies {
     implementation (Dependencies.composeViewmodel)
     // Animations
     implementation (Dependencies.composeAnimation)
+
+    implementation (Dependencies.hilt)
+    kapt (Dependencies.hiltCompiler)
+    implementation (Dependencies.hiltNavigationCompose)
+    implementation (Dependencies.hiltWorkManager)
 }

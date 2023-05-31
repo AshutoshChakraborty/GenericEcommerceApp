@@ -17,6 +17,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.authentication.SignupScreen
 import com.example.myapplication.theme.ComposePracticeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,8 +40,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun MainComposable() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "Home") {
-        composable("Home") { HomePage(navController) }
+    NavHost(navController = navController, startDestination = "Signup") {
+        composable("Signup") { SignupScreen(navController) }
         composable("second") { SecondPage(navController) }
     }
 }
@@ -83,8 +84,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier, onButtonClick: () -> U
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
-    ComposePracticeTheme {
-        rememberNavController()
-        MainComposable()
-    }
+    MainComposable()
+
 }
