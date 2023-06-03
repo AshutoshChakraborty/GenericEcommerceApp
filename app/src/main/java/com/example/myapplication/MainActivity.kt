@@ -17,6 +17,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.authentication.LoginScreen
 import com.example.authentication.SignupScreen
 import com.example.myapplication.theme.ComposePracticeTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,30 +42,21 @@ class MainActivity : ComponentActivity() {
 private fun MainComposable() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "Signup") {
-        composable("Signup") { SignupScreen(navController) }
-        composable("second") { SecondPage(navController) }
+        composable("Signup") { SignupPage(navController = navController) }
+        composable("Login") { LoginPage(navController) }
+
     }
 }
 @Composable
-private fun HomePage(navController: NavHostController) {
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
-    ) {
-        Greeting("Android") {
-            navController.navigate("second")
-        }
+private fun LoginPage(navController: NavHostController) {
+    LoginScreen{
+        navController.popBackStack()
     }
 }
 @Composable
-private fun SecondPage(navController: NavHostController) {
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.primary
-    ) {
-        Greeting("Android on Second page") {
-            navController.popBackStack()
-        }
+private fun SignupPage(navController: NavHostController) {
+    SignupScreen(navController){
+        navController.navigate("Login")
     }
 }
 @Composable

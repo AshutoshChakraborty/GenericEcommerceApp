@@ -1,6 +1,7 @@
 package com.example.authentication
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,7 +15,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -33,7 +34,7 @@ import com.example.core.ui.TitleView
 import com.example.core.ui.TransparentTextField
 
 @Composable
-fun SignupScreen(navController: NavHostController,alreadyHaveAccountButtonClick:()->Unit) {
+fun LoginScreen(onLoginSuccess:()->Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -41,19 +42,13 @@ fun SignupScreen(navController: NavHostController,alreadyHaveAccountButtonClick:
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         Column {
-            TitleView(R.string.sign_up)
+            TitleView(R.string.log_in)
             TransparentTextField(
-                "", "Name", Modifier
+                "", "Email", Modifier
                     .padding(start = 16.dp, top = 73.dp, end = 16.dp)
                     .height(64.dp)
                     .fillMaxWidth()
 
-            )
-            TransparentTextField(
-                "", "Email", Modifier
-                    .padding(start = 16.dp, top = 8.dp, end = 16.dp)
-                    .height(64.dp)
-                    .fillMaxWidth()
             )
             TransparentTextField(
                 "", "Password", Modifier
@@ -61,20 +56,21 @@ fun SignupScreen(navController: NavHostController,alreadyHaveAccountButtonClick:
                     .height(64.dp)
                     .fillMaxWidth()
             )
+
             Row(
                 horizontalArrangement = Arrangement.End, modifier = Modifier
                     .fillMaxWidth()
                     .padding(end = 16.dp)
             ) {
                 BodyText(
-                    text = R.string.already_have_an_account,
+                    text = R.string.forgot_password,
                     modifier = Modifier.padding(start = 14.dp, top = 16.dp, end = 4.dp)
                 )
                 ThemedIconButton(
                     R.drawable.round_arrow_right_alt_24px,
-                    "Already have an Account ?"
+                    "Forgot your password ?"
                 ) {
-                    alreadyHaveAccountButtonClick.invoke()
+
                 }
             }
             SubmitButton(
@@ -90,8 +86,9 @@ fun SignupScreen(navController: NavHostController,alreadyHaveAccountButtonClick:
                     .fillMaxWidth()
                     .height(48.dp)
                     .clip(RoundedCornerShape(50))
-                    .background(color = appRed),
-                stringResource(id = R.string.sign_up).uppercase()
+                    .background(color = appRed)
+                    .clickable { onLoginSuccess.invoke() },
+                stringResource(id = R.string.log_in).uppercase()
             )
         }
 
@@ -101,15 +98,15 @@ fun SignupScreen(navController: NavHostController,alreadyHaveAccountButtonClick:
                 .padding(bottom = 24.dp)
         ) {
             BodyText(
-                text = R.string.sign_up_with_social_media, modifier = Modifier
+                text = R.string.login_with_social_media, modifier = Modifier
                     .wrapContentSize()
                     .padding(bottom = 12.dp)
-                    .align(CenterHorizontally)
+                    .align(Alignment.CenterHorizontally)
             )
             Row(
                 Modifier
                     .wrapContentWidth()
-                    .align(CenterHorizontally)
+                    .align(Alignment.CenterHorizontally)
             ) {
                 ThemedIconButton(imageResource = R.drawable.group, contentDescription = "Google") {
 
@@ -135,6 +132,8 @@ fun SignupScreen(navController: NavHostController,alreadyHaveAccountButtonClick:
     device = "id:pixel_4a", apiLevel = 33
 )
 @Composable
-fun SignupScreenPreview() {
-    SignupScreen(rememberNavController()){}
+fun LoginScreenPreview() {
+    LoginScreen{
+
+    }
 }

@@ -1,5 +1,8 @@
 <resources>
     <string name="sign_up">Sign up</string>
+    <string name="log_in">Login</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="forgot_password">Forgot your password?</string>
     <string name="sign_up_with_social_media">Or sign up with social account</string>
+    <string name="login_with_social_media">Or login with social account</string>
 </resources>

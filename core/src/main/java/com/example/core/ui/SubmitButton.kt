@@ -1,6 +1,7 @@
 package com.example.core.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -56,7 +57,8 @@ fun PreviewSubmitButton() {
             .fillMaxWidth()
             .height(48.dp)
             .clip(RoundedCornerShape(50))
-            .background(color = appRed),
+            .background(color = appRed)
+            ,
         stringResource(id = R.string.hello_world).uppercase()
     )
 }
