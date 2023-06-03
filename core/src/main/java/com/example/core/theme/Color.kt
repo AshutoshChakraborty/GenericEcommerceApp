@@ -1,4 +1,4 @@
-package com.example.authentication.theme
+package com.example.core.theme
 
 import androidx.compose.ui.graphics.Color
 val textGrey = Color(0xFF9B9B9B)

@@ -16,3 +16,4 @@ rootProject.name = "My Application"
 include (":app")
 include (":feature:authentication")
 include (":feature:dashboard")
+include(":core")

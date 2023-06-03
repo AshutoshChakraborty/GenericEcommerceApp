@@ -9,6 +9,7 @@ android {
 }
 
 dependencies {
+    implementation (project(":core"))
     testImplementation (Dependencies.jUnit)
     androidTestImplementation (Dependencies.jUnitExt)
     androidTestImplementation (Dependencies.espresso)
