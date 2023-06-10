@@ -119,5 +119,5 @@ dependencies {
     //Retrofit
     implementation (Dependencies.retrofit)
     implementation (Dependencies.gsonConverter)
-    implementation (Dependencies.loggingInterceptor)
+    implementation (libs.loggingInterceptor)
 }
