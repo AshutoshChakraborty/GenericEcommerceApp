@@ -71,6 +71,9 @@ fun LoginScreen(onLoginSuccess:()->Unit) {
 
                 }
             }
+            /**
+             * This compose method uses a beautiful example of having a colorful shadow in android
+             */
             SubmitButton(
                 Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 28.dp)
