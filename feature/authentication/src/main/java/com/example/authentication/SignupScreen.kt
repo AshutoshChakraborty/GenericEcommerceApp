@@ -26,6 +26,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.core.modifier.colorFullShadow
 import com.example.core.theme.appRed
 import com.example.core.theme.appRedWithAlpha
+import com.example.core.theme.textGrey
 import com.example.core.ui.BodyText
 import com.example.core.ui.SubmitButton
 import com.example.core.ui.ThemedIconButton
@@ -46,20 +47,20 @@ fun SignupScreen(navController: NavHostController,alreadyHaveAccountButtonClick:
                 "", "Name", Modifier
                     .padding(start = 16.dp, top = 73.dp, end = 16.dp)
                     .height(64.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(), textGrey
 
             )
             TransparentTextField(
                 "", "Email", Modifier
                     .padding(start = 16.dp, top = 8.dp, end = 16.dp)
                     .height(64.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(), textGrey
             )
             TransparentTextField(
                 "", "Password", Modifier
                     .padding(start = 16.dp, top = 8.dp, end = 16.dp)
                     .height(64.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(), textGrey
             )
             Row(
                 horizontalArrangement = Arrangement.End, modifier = Modifier

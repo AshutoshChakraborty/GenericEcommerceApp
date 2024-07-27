@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         gradlePluginPortal()
         google()
@@ -12,7 +13,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "My Application"
+rootProject.name = "MyApplication"
 include (":app")
 include (":feature:authentication")
 include (":feature:dashboard")

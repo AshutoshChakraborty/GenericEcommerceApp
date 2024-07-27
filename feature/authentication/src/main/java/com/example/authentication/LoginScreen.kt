@@ -22,11 +22,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.example.core.modifier.colorFullShadow
-import com.example.core.theme.appRed
 import com.example.core.theme.appRedWithAlpha
+import com.example.core.theme.textGrey
 import com.example.core.ui.BodyText
 import com.example.core.ui.SubmitButton
 import com.example.core.ui.ThemedIconButton
@@ -47,14 +45,14 @@ fun LoginScreen(onLoginSuccess:()->Unit) {
                 "", "Email", Modifier
                     .padding(start = 16.dp, top = 73.dp, end = 16.dp)
                     .height(64.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(), Color.Blue
 
             )
             TransparentTextField(
                 "", "Password", Modifier
                     .padding(start = 16.dp, top = 8.dp, end = 16.dp)
                     .height(64.dp)
-                    .fillMaxWidth()
+                    .fillMaxWidth(), textGrey
             )
 
             Row(
@@ -84,9 +82,9 @@ fun LoginScreen(onLoginSuccess:()->Unit) {
                         blurRadius = 5.dp
                     )
                     .fillMaxWidth()
-                    .height(48.dp)
+                    .height(45.dp)
                     .clip(RoundedCornerShape(50))
-                    .background(color = appRed)
+                    .background(color = Color.Blue)
                     .clickable { onLoginSuccess.invoke() },
                 stringResource(id = R.string.log_in).uppercase()
             )

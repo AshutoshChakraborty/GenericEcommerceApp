@@ -1,11 +1,11 @@
 [versions]
 accompanist = "0.25.1"
 androidDesugarJdkLibs = "1.2.2"
-androidGradlePlugin = "8.0.2"
+androidGradlePlugin = "8.4.0"
 androidxActivity = "1.7.0"
 androidxConstraintLayout = "2.1.4"
 androidxAppCompat = "1.6.1"
-androidxComposeBom = "2023.05.01"
+androidxComposeBom = "2023.06.00"
 androidxComposeCompiler = "1.4.5"
 androidxComposeMaterial3 = "1.1.0-alpha06"
 androidxComposeRuntimeTracing = "1.0.0-alpha01"
@@ -43,7 +43,7 @@ hiltExt = "1.0.0"
 jacoco = "0.8.7"
 junit4 = "4.13.2"
 junitExt = "1.1.5"
-kotlin = "1.8.20"
+kotlin = "1.8.21"
 kotlinxCoroutines = "1.6.4"
 kotlinxDatetime = "0.4.0"
 kotlinxSerializationJson = "1.5.0"
@@ -58,13 +58,14 @@ secrets = "2.0.1"
 turbine = "0.12.1"
 [libraries]
 androidx-appCompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
-androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-coreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidxConstraintLayout" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
 compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 compose-material-icon-core = { group = "androidx.compose.material", name = "material-icons-core" }
 compose-material-icon-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
@@ -97,6 +98,13 @@ daggerHiltTesting = { group = "com.google.dagger", name = "hilt-android-testing"
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 gsonConverter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 loggingInterceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor" }
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+firebase-crashlytics-gradlePlugin = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebaseCrashlyticsPlugin" }
+firebase-performance-gradlePlugin = { group = "com.google.firebase", name = "perf-plugin", version.ref = "firebasePerfPlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
@@ -106,6 +114,7 @@ firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "fireb
 gms = { id = "com.google.gms.google-services", version.ref = "gmsPlugin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets" }

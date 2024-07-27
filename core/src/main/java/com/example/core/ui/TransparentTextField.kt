@@ -12,7 +12,7 @@ import com.example.core.theme.metropolis
 import com.example.core.theme.textGrey
 
 @Composable
-fun TransparentTextField(textValue: String, lable: String, modifier: Modifier) {
+fun TransparentTextField(textValue: String, lable: String, modifier: Modifier, color: Color) {
     TextField(
         value = textValue,
         onValueChange = {
@@ -22,7 +22,7 @@ fun TransparentTextField(textValue: String, lable: String, modifier: Modifier) {
             Text(
                 text = lable,
                 fontSize = 14.sp,
-                color = textGrey,
+                color = color,
                 fontFamily = metropolis,
                 fontWeight = FontWeight.Normal
             )

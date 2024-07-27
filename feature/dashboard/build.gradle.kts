@@ -1,6 +1,9 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id ("kotlin-kapt")
+    id ("com.google.dagger.hilt.android")
+    id ("myapplication.android.feature")
+    id("myapplication.android.feature.compose")
+    id("myapplication.android.accompanist")
 }
 
 android {
@@ -9,30 +12,37 @@ android {
 }
 
 dependencies {
-    implementation (project(":core"))
-    testImplementation (Dependencies.jUnit)
-    androidTestImplementation (Dependencies.jUnitExt)
-    androidTestImplementation (Dependencies.espresso)
+    implementation (libs.androidx.appCompat)
+    implementation (libs.androidx.coreKtx)
+    implementation (libs.constraintlayout)
 
-    val composeBom = platform("androidx.compose:compose-bom:2023.05.01")
-    implementation(composeBom)
-    androidTestImplementation (composeBom)
 
+    //Hilt
+    implementation (libs.hilt)
+    kapt (libs.hiltCompiler)
+    implementation (libs.hiltNavigationCompose)
+    implementation (libs.hiltWorkManager)
+
+    implementation (libs.workRuntime)
+
+    // When using Kotlin.
+    kapt (libs.hiltAndroidXCompiler)
+    implementation (libs.hiltNavigationFragment)
+
+    //Test dependency
+    testImplementation (libs.jUnit)
+    androidTestImplementation (libs.jUnitExt)
+    androidTestImplementation (libs.espresso)
     // UI Tests
-    androidTestImplementation (Dependencies.composeUiTest)
-    // Android Studio Preview support
-    implementation (Dependencies.composePreviews)
-    debugImplementation (Dependencies.composeTooling)
-    // Foundation (Dependencies.Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation (Dependencies.composeFoundation)
-    // or only import the main APIs for the underlying toolkit systems,
-    // such as input and measurement/layout
-    implementation (Dependencies.composeUi)
-    // Material Design
-    implementation (Dependencies.composeMaterial)
-    // Optional - Integration with ViewModels
-    implementation (Dependencies.composeViewmodel)
-    // Animations
-    implementation (Dependencies.composeAnimation)
-    implementation (Dependencies.hiltNavigationCompose)
+    androidTestImplementation (libs.composeUiTest)
+    debugImplementation (libs.composeUiTestManifest)
+
+    // For instrumented tests.
+    androidTestImplementation (libs.daggerHiltTesting)
+    // ...with Kotlin.
+    kaptAndroidTest (libs.hiltCompiler)
+    //Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.gsonConverter)
+    implementation (libs.loggingInterceptor)
 }
